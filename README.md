@@ -10,7 +10,15 @@ for instalation you have to, run the command:
 npm install
 ```
 
-## Development server
+## Run program (optional)
+
+in case you don't have angular/cli installed you can run with:
+
+```bash
+npm start
+```
+
+## Run program
 
 To start a local development server, run:
 
