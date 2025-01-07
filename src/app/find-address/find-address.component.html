@@ -1,0 +1,56 @@
+<div class="login-container">
+  <div style="text-align: center; margin-bottom: 20px;">
+    <img 
+      src="https://www.allrideapp.com/assets/img/allride_celeste.svg" 
+      alt="Logo Allride" 
+      style="width: 40%; height: auto;" 
+    />
+  </div>
+  <h2>Ingresa Dirección</h2>
+  <div class="centralized">
+      <div class="search" style="margin: 20px; width: 50%;">
+        <mat-form-field appearance="outline">
+          <mat-label>Dirección</mat-label>
+          <input matInput [(ngModel)]="address" #searchInput />
+        </mat-form-field>
+        <button class="buttonSearch" mat-raised-button (click)="searchAddress()">Buscar Dirección</button>
+      </div>
+  </div>
+  <div style="display: flex;">
+    <div> 
+      <h2>Intrucciones</h2>
+      <div class="centralized">
+        <div class="search" style="margin: 20px; width: 50%; text-align: justify;">
+          <h3>1) Busca una dirección</h3>
+          <h3>2) Presiona el botton "Buscar Dirección"</h3>
+          <h3>
+            3) Te recomendamos abrir un nuevo navegador con la pestaña 
+            <strong>http://127.0.0.1:4200/maps</strong> o presiona el siguiente botón:
+          </h3>
+          <button mat-raised-button color="accent" (click)="openInNewWindow()">Abrir en nuevo navegador</button>
+        </div>
+      </div>
+    </div>
+    <div> 
+      <h2>Direcciones enviadas</h2>
+      <div class="centralized">
+        <div *ngFor="let marker of addressSended" class="search" style="margin: 20px; width: 50%; text-align: justify;">
+          <h3>{{ marker }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+  <!-- <div style="width: 100%; height: 400px;">
+    <google-map
+      [center]="center"
+      [zoom]="zoom"
+      height="400px"
+      width="100%"
+    >
+      <map-marker *ngIf="markerPosition" [position]="markerPosition"></map-marker>
+    </google-map>
+  </div>     -->
+</div>
