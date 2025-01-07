@@ -1,20 +1,38 @@
-<div class="login-container" style="width: 90vw;">
-    <h2>Encuentra tu direccion</h2>
-   
-    <google-map
-    [center]="center"
-    [zoom]="zoom"
-    height="500px"
-    width="100%"
-  >
-
-    <map-marker
-      *ngFor="let marker of markers"
-      [position]="marker"
-    >
-    </map-marker>
-  </google-map>
-  
+<div style="display: flex;">
+  <div style="margin-right: 5%;"> 
+    <h2>
+      Direcciones Recibidas:
+      <button class="buttonSearch" (click)="openInstructionsModal()" style="width: 50%;" mat-raised-button >Instrucciones</button></h2>
+    <div class="centralized justifyAddress">
+      <h3 *ngIf="!addressRecibed || addressRecibed.length === 0"> No se han recibido direcciones</h3>
+      <div *ngFor="let address of addressRecibed; let i = index" class="search" style="width: 70%; text-align: justify;">
+        <h3> 
+          {{ i + 1 }}) {{ address.formatted_address }}
+          <br>
+          <button class="buttonSearch" mat-raised-button (click)="setCenter({ lat: address.lat, lng: address.lng })">Ubicar</button>
+        </h3>
+      </div>
+    </div>
   </div>
+
+  <div class="login-container" style="width: 70vw;">
+      <h2>Encuentra tu direccion</h2>
+     
+      <google-map
+      [center]="center"
+      [zoom]="zoom"
+      height="500px"
+      width="100%"
+    >
+  
+      <map-marker
+        *ngFor="let marker of markers"
+        [position]="marker"
+      >
+      </map-marker>
+    </google-map>
+    
+    </div>
+</div>
   
   

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild, OnDestroy, signal } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,7 +18,7 @@ import { SocketService } from '../services/socket.service';
 export class FindAddressComponent implements AfterViewInit , OnDestroy {
   @ViewChild('searchInput') searchInput: ElementRef | undefined;
 
-  address: string = '';
+  address = signal('');
   center: google.maps.LatLngLiteral = { lat: -33.4489, lng: -70.6693 };
   addressSended: string[] = [];
   zoom = 15;
@@ -37,12 +37,12 @@ export class FindAddressComponent implements AfterViewInit , OnDestroy {
   }
 
   searchAddress() {
-    this.geocodingService.getCoordinates(this.address)
+    this.geocodingService.getCoordinates(this.address())
       .subscribe((response) => {
         if (response.results && response.results.length > 0) {
           const location = response.results[0].geometry.location;
           this.addressSended.push(response.results[0].formatted_address)
-          this.socketService.sendLocation({ lat: location.lat, lng: location.lng });
+          this.socketService.sendLocation({ lat: location.lat, lng: location.lng, formatted_address: response.results[0].formatted_address });
         } else {
           alert('No se encontraron resultados para la dirección ingresada.');
         }
@@ -51,7 +51,7 @@ export class FindAddressComponent implements AfterViewInit , OnDestroy {
 
   openInNewWindow() {
     const url = 'http://127.0.0.1:4200/maps';
-    const windowFeatures = 'width=800,height=600,resizable,scrollbars,status';
+    const windowFeatures = 'width=1600,height=600,resizable,scrollbars,status';
     window.open(url, '_blank', windowFeatures);
   }
 
