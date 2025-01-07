@@ -13,31 +13,34 @@
           <mat-label>Dirección</mat-label>
           <input matInput [(ngModel)]="address" #searchInput />
         </mat-form-field>
-        <button class="buttonSearch" mat-raised-button (click)="searchAddress()">Buscar Dirección</button>
+        <button class="buttonSearch" mat-raised-button (click)="searchAddress()">Enviar Dirección</button>
       </div>
   </div>
-  <div style="display: flex;">
-    <div style="width: 60%;"> 
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+    <div style="width: 40%;"> 
       <h2>Instrucciones</h2>
       <div class="centralized">
-        <div class="search" style="margin: 20px; width: 50%; text-align: justify;">
+        <div class="search" style="text-align: justify;">
           <h3>
-            1) Abre un nuevo navegador con la url
-            <strong>http://127.0.0.1:4200/maps</strong> o presiona el siguiente botón:
+            1) Para iniciar la prueba es necesario
+            <strong>conectar al menos un mapa</strong>, presionando el siguiente botón:
           </h3>
           <button mat-raised-button style="margin-top: 5px; margin-bottom: 10px;" color="accent" (click)="openInNewWindow()">
             Abrir mapa
           </button>
           <h3>2) Busca una dirección</h3>
-          <h3>3) Presiona el botton "Buscar Dirección"</h3>
+          <h3>3) Presiona el botton "Enviar Dirección"</h3>
         </div>
       </div>
     </div>
-    <div> 
+    <div style="width: 40%;"> 
       <h2>Direcciones enviadas</h2>
       <div class="centralized justifyAddress">
-        <h3 *ngIf="!addressSended || addressSended.length === 0"> No se han enviado direcciones</h3>
-        <div *ngFor="let marker of addressSended; let i = index" class="search" style="width: 70%; text-align: justify;">
+        <div *ngIf="!addressSended || addressSended.length === 0" class="search" style="text-align: justify;">
+          <h3> No se han enviado direcciones</h3>
+        </div>
+        
+        <div *ngFor="let marker of addressSended; let i = index" class="search" style="width: auto; text-align: justify;">
           <h3>{{ i + 1 }}) {{ marker }}</h3>
         </div>
       </div>
