@@ -46,6 +46,8 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 
 ![Captura de pantalla 2025-01-07 233704](https://github.com/user-attachments/assets/6c8b289c-63f1-48b3-9877-499957fd0694)
 
+![Captura de pantalla 2025-01-08 090536](https://github.com/user-attachments/assets/be2ee5f4-d197-4916-b8e5-62693419aa3a)
+
 ![Captura de pantalla 2025-01-07 233735](https://github.com/user-attachments/assets/5d6f2045-3295-43e7-91c6-564c44ab7ba3)
 
 ![Captura de pantalla 2025-01-07 233928](https://github.com/user-attachments/assets/2c17ab8b-4aaa-4f51-a82f-a939c8565647)
