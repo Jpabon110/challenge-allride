@@ -3,12 +3,12 @@
     <img 
       src="https://www.allrideapp.com/assets/img/allride_celeste.svg" 
       alt="Logo Allride" 
-      style="width: 40%; height: auto;" 
+      class="imageCentralice"
     />
   </div>
   <h2>Ingresa Dirección</h2>
   <div class="centralized">
-      <div class="search" style="margin: 20px; width: 50%;">
+      <div class="search ajusted">
         <mat-form-field appearance="outline">
           <mat-label>Dirección</mat-label>
           <input matInput [(ngModel)]="address" #searchInput />
@@ -16,11 +16,11 @@
         <button class="buttonSearch" mat-raised-button (click)="searchAddress()">Enviar Dirección</button>
       </div>
   </div>
-  <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+  <div class="centarWrap">
     <div style="width: 40%;"> 
       <h2>Instrucciones</h2>
       <div class="centralized">
-        <div class="search" style="text-align: justify;">
+        <div class="search">
           <h3>
             1) Para iniciar la prueba es necesario
             <strong>conectar al menos un mapa</strong>, presionando el siguiente botón:
@@ -36,7 +36,7 @@
     <div> 
       <h2>Direcciones enviadas</h2>
       <div class="centralized justifyAddress">
-        <div *ngIf="!addressSended || addressSended.length === 0" class="search" style="text-align: justify;">
+        <div *ngIf="!addressSended || addressSended.length === 0" class="search">
           <h3> No se han enviado direcciones</h3>
         </div>
         

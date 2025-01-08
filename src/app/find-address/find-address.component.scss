@@ -18,6 +18,24 @@
     background-color: #29a8e0 !important;
     color: white !important;
   }
+  .search {
+    text-align: justify;
+  }
+
+  .ajusted {
+    margin: 20px; width: 50%; text-align: center;
+  }
+
+  .centarWrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .imageCentralice {
+    width: 40%;
+    height: auto;
+  }
 
   .centralized {
     display: flex;
